@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Network Health Report - Greenwood</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, Segoe UI, Helvetica, Arial, sans-serif; background:#f6f8fa; color:#1f2328; margin:0; padding:40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 26px; margin-bottom:4px; }
+  .subtitle { color:#57606a; margin-bottom:28px; }
+  .cards { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:36px; }
+  a.card-link { text-decoration:none; color:inherit; flex:1; min-width:180px; }
+  .card { background:white; border:1px solid #d0d7de; border-radius:8px; padding:18px 22px; height:100%; box-sizing:border-box; transition:box-shadow .15s ease, transform .15s ease; }
+  a.card-link:hover .card { box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:translateY(-1px); cursor:pointer; }
+  .card.static { cursor:default; }
+  .card .label { font-size:12px; text-transform:uppercase; color:#57606a; letter-spacing:.04em; }
+  .card .value { font-size:28px; font-weight:600; margin-top:4px; }
+  section { background:white; border:1px solid #d0d7de; border-radius:8px; padding:22px 24px; margin-bottom:24px; scroll-margin-top:20px; }
+  section h2 { font-size:17px; margin-top:0; border-bottom:1px solid #d0d7de; padding-bottom:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; color:#57606a; font-weight:600; padding:8px 10px; border-bottom:1px solid #d0d7de; }
+  td { padding:8px 10px; border-bottom:1px solid #eaeef2; }
+  .empty { color:#57606a; font-style:italic; text-align:center; padding:16px; }
+  footer { color:#8b949e; font-size:12px; text-align:center; margin-top:30px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Network Health Report</h1>
+  <div class="subtitle">Greenwood &middot; Last 7 days &middot; Generated 2026-08-17T22:26:32.745183+00:00</div>
+
+  <div class="cards">
+    <a class="card-link" href="#offline-devices"><div class="card"><div class="label">Overall Uptime</div><div class="value" style="color:#1a7f37">100.0%</div></div></a>
+    <div class="card-link"><div class="card static"><div class="label">Total Devices</div><div class="value">10</div></div></div>
+    <a class="card-link" href="#offline-devices"><div class="card"><div class="label">Offline Now</div><div class="value" style="color:#cf222e">0</div></div></a>
+    <div class="card-link"><div class="card static"><div class="label">Alerting Now</div><div class="value" style="color:#9a6700">0</div></div></div>
+    <a class="card-link" href="#firmware-compliance"><div class="card"><div class="label">Outdated Firmware</div><div class="value">2</div></div></a>
+    <a class="card-link" href="#firmware-compliance"><div class="card"><div class="label">Devices w/ Upgrade Available</div><div class="value">3</div></div></a>
+    <a class="card-link" href="#networks-firmware-upgrades"><div class="card"><div class="label">Networks w/ Firmware Pending</div><div class="value" style="color:#9a6700">2</div></div></a>
+    <a class="card-link" href="#wan-performance"><div class="card"><div class="label">WAN Uplinks Flagged</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#mx-utilization"><div class="card"><div class="label">MX Near Capacity</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#device-utilization"><div class="card"><div class="label">MS/MR Risk Signals</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#ap-expansion"><div class="card"><div class="label">Sites - Possible AP Expansion</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#switch-uplink-status"><div class="card"><div class="label">Switch Uplinks Offline</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#switch-uplink-status"><div class="card"><div class="label">Switch Uplinks Degraded</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#license-status"><div class="card"><div class="label">Licenses Unassigned/Expired</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#license-status"><div class="card"><div class="label">Licenses Expiring Soon</div><div class="value" style="color:#1a7f37">0</div></div></a>
+    <a class="card-link" href="#security-events"><div class="card"><div class="label">Security Events (Malware/IDS)</div><div class="value" style="color:#1a7f37">0</div></div></a>
+  </div>
+
+  <section id="offline-devices">
+    <h2>Offline Devices by Type</h2>
+    <table><tr><th>Device Type</th><th>Device Name</th><th>Network</th><th>Serial #</th><th>Last Seen</th><th>Downtime</th></tr>
+    <tr><td colspan='6' class='empty'>No devices currently offline.</td></tr>
+    </table>
+  </section>
+
+  <section id="device-outages">
+    <h2>Device Outages (Top 30 by downtime, last 7 days)</h2>
+    <table><tr><th>Device</th><th>Network</th><th>Type</th><th>Outage Count</th><th>Total Downtime (hrs)</th></tr>
+    <tr><td colspan='5' class='empty'>No outages recorded in this window.</td></tr>
+    </table>
+  </section>
+
+  <section id="wan-performance">
+    <h2>WAN &amp; ISP Performance</h2>
+    <table><tr><th>Network</th><th>Uplink</th><th>Loss %</th><th>Latency (ms)</th></tr>
+    <tr><td colspan='4' class='empty'>No WAN uplinks exceeded loss/latency thresholds.</td></tr>
+    </table>
+  </section>
+
+  <section id="mx-utilization">
+    <h2>MX (Security Appliance) Utilization</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Meraki-reported utilization: current throughput vs. each model's rated maximum throughput. Rows in red are at or above the 70% threshold - a useful signal for whether the site's MX model needs to be upgraded. Note: Meraki's API only returns the top 10 appliances by utilization org-wide, so appliances outside the top 10 (i.e. the least-utilized ones) won't appear here.</p>
+    <table><tr><th>Network</th><th>Appliance</th><th>Model</th><th>Utilization %</th><th>Flag</th></tr>
+    <tr><td>03 - Worcester</td><td>MX-85 Worcester</td><td>MX85</td><td style='color:#1f2328;font-weight:400'>15.36394422310757%</td><td></td></tr><tr><td>02 - Providence Brunca</td><td>Q3MS-HL66-MYQG</td><td>MX68W</td><td style='color:#1f2328;font-weight:400'>2.8551792828685256%</td><td></td></tr><tr><td>01 - Woonsocket</td><td>01 - Woonsocket - MX</td><td>MX67</td><td style='color:#1f2328;font-weight:400'>1.6057768924302789%</td><td></td></tr>
+    </table>
+  </section>
+
+  <section id="device-utilization">
+    <h2>Device Health &amp; Risk Signals - MS &amp; MR</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Real capacity metrics, not proxies: MS rows are measured port traffic against that port's rated link speed; MR rows are RF channel utilization (spectrum saturation) at that AP/band. Camera and sensor issues aren't capacity signals, so they're covered under Offline Devices and Environmental Sensors instead.</p>
+    <table><tr><th>Device Type</th><th>Item</th><th>Network</th><th>Metric</th><th>Value</th></tr>
+    <tr><td colspan='5' class='empty'>No devices flagged near capacity or at risk.</td></tr>
+    </table>
+  </section>
+
+  <section id="ap-expansion">
+    <h2>Sites - Possible AP Expansion Candidates</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Heuristic based on wireless connection-failure rate (association/auth/DHCP/DNS failures) - not an official Meraki metric, but a reasonable proxy for weak-signal or overloaded-AP conditions.</p>
+    <table><tr><th>Network</th><th>Connection Failure %</th></tr>
+    <tr><td colspan='2' class='empty'>No sites flagged for possible AP expansion.</td></tr>
+    </table>
+  </section>
+
+  <section id="switch-uplink-status">
+    <h2>Switch Uplink Status</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Offline and speed-degraded uplinks from this run's snapshot. Port "instability" (flapping) requires recurring runs of this script to detect and is not shown here.</p>
+    <table><tr><th>Switch</th><th>Port</th><th>Issue</th><th>Detail</th></tr>
+    <tr><td colspan='4' class='empty'>All switch uplink ports online and at full speed.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Environmental Sensors - Low Battery</h2>
+    <table><tr><th>Serial</th><th>Network</th><th>Battery</th></tr>
+    <tr><td colspan='3' class='empty'>No sensors below the low-battery threshold.</td></tr>
+    </table>
+  </section>
+
+  <section id="networks-firmware-upgrades">
+    <h2>Networks with Firmware Upgrades Available</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">One row per network, rolled up from the per-product table below - a quick view of which sites have anything pending, with the earliest scheduled upgrade time if Meraki has one set.</p>
+    <table><tr><th>Network</th><th>Products w/ Upgrade Available</th><th>Devices Affected</th><th>Earliest Scheduled</th></tr>
+    <tr><td>01 - Woonsocket</td><td>wireless (MR 32.1.7 → MR 32.2.4)</td><td>2</td><td>Not scheduled</td></tr><tr><td>02 - Providence Brunca</td><td>wireless (MR 32.1.7 → MR 32.2.4)</td><td>1</td><td>Not scheduled</td></tr>
+    </table>
+  </section>
+
+  <section id="firmware-compliance">
+    <h2>Firmware Compliance - Devices Pending Upgrade</h2>
+    <table><tr><th>Network</th><th>Product</th><th>Current</th><th>Available</th><th>Devices Affected</th></tr>
+    <tr><td>02 - Providence Brunca</td><td>wireless</td><td>MR 32.1.7</td><td>MR 32.2.4</td><td>1</td></tr><tr><td>01 - Woonsocket</td><td>wireless</td><td>MR 32.1.7</td><td>MR 32.2.4</td><td>2</td></tr>
+    </table>
+  </section>
+
+  <section id="license-status">
+    <h2>License Status</h2>
+    <table><tr><th>Category</th><th>Detail</th></tr>
+    <tr><td colspan='2' class='empty'>No unassigned, expired, or soon-to-expire licenses found.</td></tr>
+    </table>
+  </section>
+
+  <section id="security-events">
+    <h2>Security Events - Malware / IDS-IPS Alerts (last 7 days)</h2>
+    <table><tr><th>Timestamp</th><th>Event Type</th><th>Source IP</th><th>Destination IP</th><th>Dest Port</th><th>Attack / Detail</th><th>Action</th></tr>
+    <tr><td colspan='7' class='empty'>No malware or IDS/IPS alerts detected in this window.</td></tr>
+    </table>
+  </section>
+
+  <footer>Generated automatically via the Meraki Dashboard API. Data reflects a 7-day lookback window.</footer>
+</div>
+</body>
+</html>
